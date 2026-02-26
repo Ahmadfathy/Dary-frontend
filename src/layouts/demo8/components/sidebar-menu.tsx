@@ -11,6 +11,7 @@ import { MENU_HELP, MENU_SIDEBAR } from '@/config/menu.config';
 import { MenuConfig } from '@/config/types';
 import { cn } from '@/lib/utils';
 import { useMenu } from '@/hooks/use-menu';
+import { useLanguage } from '@/providers/i18n-provider';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -27,35 +28,36 @@ import {
 export function SidebarMenu() {
   const { pathname } = useLocation();
   const { isActive, hasActiveChild } = useMenu(pathname);
+  const { t } = useLanguage();
 
   const menuConfig: MenuConfig = [
     {
-      title: 'Boards',
+      title: t('NAVIGATION.MENU.DASHBOARD'),
       icon: BarChart2,
       path: '/',
     },
     {
-      title: 'Profiles',
+      title: t('NAVIGATION.MENU.PROFILE'),
       icon: User,
       children: MENU_SIDEBAR?.[2].children,
     },
     {
-      title: 'Account',
+      title: t('NAVIGATION.MENU.ACCOUNT'),
       icon: Settings,
       children: MENU_SIDEBAR?.[3].children,
     },
     {
-      title: 'Store',
+      title: t('NAVIGATION.MENU.STORE'),
       icon: ShoppingCart,
       children: MENU_SIDEBAR?.[7].children,
     },
     {
-      title: 'Network',
+      title: t('NAVIGATION.MENU.NETWORK'),
       icon: Users,
       children: MENU_SIDEBAR?.[4].children,
     },
     {
-      title: 'Help',
+      title: t('NAVIGATION.MENU.HELP'),
       icon: Share2,
       children: MENU_HELP,
     },

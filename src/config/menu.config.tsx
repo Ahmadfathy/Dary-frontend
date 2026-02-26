@@ -58,32 +58,33 @@ import { type MenuConfig } from './types';
 
 export const MENU_SIDEBAR: MenuConfig = [
   {
-    title: 'Dashboards',
+    title: 'NAVIGATION.MENU.DASHBOARDS',
     icon: LayoutGrid,
-    children: [
-      { title: 'Light Sidebar', path: '/' },
-      { title: 'Dark Sidebar', path: '/dark-sidebar' },
-    ],
+    path: '/'
+    // children: [
+    //   { title: 'NAVIGATION.MENU.LIGHT_SIDEBAR', path: '/' },
+    //   { title: 'NAVIGATION.MENU.DARK_SIDEBAR', path: '/dark-sidebar' },
+    // ],
   },
-  { heading: 'User' },
+  { heading: 'USER.HEADING' },
   {
-    title: 'Public Profile',
+    title: 'USER.MENU.PUBLIC_PROFILE',
     icon: UserCircle,
     children: [
       {
-        title: 'Profiles',
+        title: 'USER.MENU.PROFILES',
         children: [
-          { title: 'Default', path: '/public-profile/profiles/default' },
-          { title: 'Creator', path: '/public-profile/profiles/creator' },
-          { title: 'Company', path: '/public-profile/profiles/company' },
-          { title: 'NFT', path: '/public-profile/profiles/nft' },
-          { title: 'Blogger', path: '/public-profile/profiles/blogger' },
+          { title: 'USER.MENU.DEFAULT', path: '/public-profile/profiles/default' },
+          { title: 'USER.MENU.CREATOR', path: '/public-profile/profiles/creator' },
+          { title: 'USER.MENU.COMPANY', path: '/public-profile/profiles/company' },
+          { title: 'USER.MENU.NFT', path: '/public-profile/profiles/nft' },
+          { title: 'USER.MENU.BLOGGER', path: '/public-profile/profiles/blogger' },
           { title: 'CRM', path: '/public-profile/profiles/crm' },
           {
-            title: 'More',
+            title: 'USER.MENU.MORE',
             collapse: true,
-            collapseTitle: 'Show less',
-            expandTitle: 'Show 4 more',
+            collapseTitle: 'COMMON.LABELS.SHOW_LESS',
+            expandTitle: 'COMMON.LABELS.SHOW_MORE',
             children: [
               { title: 'Gamer', path: '/public-profile/profiles/gamer' },
               { title: 'Feeds', path: '/public-profile/profiles/feeds' },
@@ -94,37 +95,37 @@ export const MENU_SIDEBAR: MenuConfig = [
         ],
       },
       {
-        title: 'Projects',
+        title: 'USER.MENU.PROJECTS',
         children: [
-          { title: '3 Columns', path: '/public-profile/projects/3-columns' },
-          { title: '2 Columns', path: '/public-profile/projects/2-columns' },
+          { title: 'USER.MENU.THREE_COLUMNS', path: '/public-profile/projects/3-columns' },
+          { title: 'USER.MENU.TWO_COLUMNS', path: '/public-profile/projects/2-columns' },
         ],
       },
-      { title: 'Works', path: '/public-profile/works' },
-      { title: 'Teams', path: '/public-profile/teams' },
-      { title: 'Network', path: '/public-profile/network' },
-      { title: 'Activity', path: '/public-profile/activity' },
+      { title: 'USER.MENU.WORKS', path: '/public-profile/works' },
+      { title: 'USER.MENU.TEAMS', path: '/public-profile/teams' },
+      { title: 'NAVIGATION.MENU.NETWORK', path: '/public-profile/network' },
+      { title: 'USER.MENU.ACTIVITY', path: '/public-profile/activity' },
       {
-        title: 'More',
+        title: 'USER.MENU.MORE',
         collapse: true,
-        collapseTitle: 'Show less',
-        expandTitle: 'Show 3 more',
+        collapseTitle: 'COMMON.LABELS.SHOW_LESS',
+        expandTitle: 'COMMON.LABELS.SHOW_MORE',
         children: [
-          { title: 'Campaigns - Card', path: '/public-profile/campaigns/card' },
-          { title: 'Campaigns - List', path: '/public-profile/campaigns/list' },
-          { title: 'Empty', path: '/public-profile/empty' },
+          { title: 'USER.MENU.CAMPAIGNS_CARD', path: '/public-profile/campaigns/card' },
+          { title: 'USER.MENU.CAMPAIGNS_LIST', path: '/public-profile/campaigns/list' },
+          { title: 'USER.MENU.EMPTY', path: '/public-profile/empty' },
         ],
       },
     ],
   },
   {
-    title: 'My Account',
+    title: 'USER.MENU.MY_ACCOUNT',
     icon: Settings,
     children: [
       {
-        title: 'Account',
+        title: 'NAVIGATION.MENU.ACCOUNT',
         children: [
-          { title: 'Get Started', path: '/account/home/get-started' },
+          { title: 'USER.MENU.GET_STARTED', path: '/account/home/get-started' },
           { title: 'User Profile', path: '/account/home/user-profile' },
           { title: 'Company Profile', path: '/account/home/company-profile' },
           {
@@ -140,7 +141,7 @@ export const MENU_SIDEBAR: MenuConfig = [
         ],
       },
       {
-        title: 'Billing',
+        title: 'USER.MENU.BILLING',
         children: [
           { title: 'Billing - Basic', path: '/account/billing/basic' },
           {
@@ -152,9 +153,9 @@ export const MENU_SIDEBAR: MenuConfig = [
         ],
       },
       {
-        title: 'Security',
+        title: 'USER.MENU.SECURITY',
         children: [
-          { title: 'Get Started', path: '/account/security/get-started' },
+          { title: 'USER.MENU.GET_STARTED', path: '/account/security/get-started' },
           { title: 'Security Overview', path: '/account/security/overview' },
           {
             title: 'Allowed IP Addresses',
@@ -180,10 +181,10 @@ export const MENU_SIDEBAR: MenuConfig = [
         ],
       },
       {
-        title: 'Members & Roles',
+        title: 'USER.MENU.MEMBERS_&_ROLES',
         children: [
           { title: 'Teams Starter', path: '/account/members/team-starter' },
-          { title: 'Teams', path: '/account/members/teams' },
+          { title: 'USER.MENU.TEAMS', path: '/account/members/teams' },
           { title: 'Team Info', path: '/account/members/team-info' },
           {
             title: 'Members Starter',
@@ -202,34 +203,34 @@ export const MENU_SIDEBAR: MenuConfig = [
           },
         ],
       },
-      { title: 'Integrations', path: '/account/integrations' },
-      { title: 'Notifications', path: '/account/notifications' },
-      { title: 'API Keys', path: '/account/api-keys' },
+      { title: 'USER.MENU.INTEGRATIONS', path: '/account/integrations' },
+      { title: 'USER.MENU.NOTIFICATIONS', path: '/account/notifications' },
+      { title: 'USER.MENU.API_KEYS', path: '/account/api-keys' },
       {
-        title: 'More',
+        title: 'USER.MENU.MORE',
         collapse: true,
-        collapseTitle: 'Show less',
-        expandTitle: 'Show 3 more',
+        collapseTitle: 'COMMON.LABELS.SHOW_LESS',
+        expandTitle: 'COMMON.LABELS.SHOW_MORE',
         children: [
           { title: 'Appearance', path: '/account/appearance' },
           { title: 'Invite a Friend', path: '/account/invite-a-friend' },
-          { title: 'Activity', path: '/account/activity' },
+          { title: 'USER.MENU.ACTIVITY', path: '/account/activity' },
         ],
       },
     ],
   },
   {
-    title: 'Network',
+    title: 'NAVIGATION.MENU.NETWORK',
     icon: Users,
     children: [
-      { title: 'Get Started', path: '/network/get-started' },
+      { title: 'USER.MENU.GET_STARTED', path: '/network/get-started' },
       {
         title: 'User Cards',
         children: [
           { title: 'Mini Cards', path: '/network/user-cards/mini-cards' },
           { title: 'Team Crew', path: '/network/user-cards/team-crew' },
           { title: 'Author', path: '/network/user-cards/author' },
-          { title: 'NFT', path: '/network/user-cards/nft' },
+          { title: 'USER.MENU.NFT', path: '/network/user-cards/nft' },
           { title: 'Social', path: '/network/user-cards/social' },
         ],
       },
@@ -450,28 +451,28 @@ export const MENU_SIDEBAR_CUSTOM: MenuConfig = [
 
 export const MENU_SIDEBAR_COMPACT: MenuConfig = [
   {
-    title: 'Dashboards',
+    title: 'NAVIGATION.MENU.DASHBOARDS',
     icon: LayoutGrid,
     path: '/',
   },
   {
-    title: 'Public Profile',
+    title: 'USER.MENU.PUBLIC_PROFILE',
     icon: UserCircle,
     children: [
       {
-        title: 'Profiles',
+        title: 'USER.MENU.PROFILES',
         children: [
-          { title: 'Default', path: '/public-profile/profiles/default' },
-          { title: 'Creator', path: '/public-profile/profiles/creator' },
-          { title: 'Company', path: '/public-profile/profiles/company' },
-          { title: 'NFT', path: '/public-profile/profiles/nft' },
-          { title: 'Blogger', path: '/public-profile/profiles/blogger' },
+          { title: 'USER.MENU.DEFAULT', path: '/public-profile/profiles/default' },
+          { title: 'USER.MENU.CREATOR', path: '/public-profile/profiles/creator' },
+          { title: 'USER.MENU.COMPANY', path: '/public-profile/profiles/company' },
+          { title: 'USER.MENU.NFT', path: '/public-profile/profiles/nft' },
+          { title: 'USER.MENU.BLOGGER', path: '/public-profile/profiles/blogger' },
           { title: 'CRM', path: '/public-profile/profiles/crm' },
           {
-            title: 'More',
+            title: 'USER.MENU.MORE',
             collapse: true,
-            collapseTitle: 'Show less',
-            expandTitle: 'Show 4 more',
+            collapseTitle: 'COMMON.LABELS.SHOW_LESS',
+            expandTitle: 'COMMON.LABELS.SHOW_MORE',
             children: [
               { title: 'Gamer', path: '/public-profile/profiles/gamer' },
               { title: 'Feeds', path: '/public-profile/profiles/feeds' },
@@ -482,37 +483,37 @@ export const MENU_SIDEBAR_COMPACT: MenuConfig = [
         ],
       },
       {
-        title: 'Projects',
+        title: 'USER.MENU.PROJECTS',
         children: [
-          { title: '3 Columns', path: '/public-profile/projects/3-columns' },
-          { title: '2 Columns', path: '/public-profile/projects/2-columns' },
+          { title: 'USER.MENU.THREE_COLUMNS', path: '/public-profile/projects/3-columns' },
+          { title: 'USER.MENU.TWO_COLUMNS', path: '/public-profile/projects/2-columns' },
         ],
       },
-      { title: 'Works', path: '/public-profile/works' },
-      { title: 'Teams', path: '/public-profile/teams' },
-      { title: 'Network', path: '/public-profile/network' },
-      { title: 'Activity', path: '/public-profile/activity' },
+      { title: 'USER.MENU.WORKS', path: '/public-profile/works' },
+      { title: 'USER.MENU.TEAMS', path: '/public-profile/teams' },
+      { title: 'NAVIGATION.MENU.NETWORK', path: '/public-profile/network' },
+      { title: 'USER.MENU.ACTIVITY', path: '/public-profile/activity' },
       {
-        title: 'More',
+        title: 'USER.MENU.MORE',
         collapse: true,
-        collapseTitle: 'Show less',
-        expandTitle: 'Show 3 more',
+        collapseTitle: 'COMMON.LABELS.SHOW_LESS',
+        expandTitle: 'COMMON.LABELS.SHOW_MORE',
         children: [
-          { title: 'Campaigns - Card', path: '/public-profile/campaigns/card' },
-          { title: 'Campaigns - List', path: '/public-profile/campaigns/list' },
-          { title: 'Empty', path: '/public-profile/empty' },
+          { title: 'USER.MENU.CAMPAIGNS_CARD', path: '/public-profile/campaigns/card' },
+          { title: 'USER.MENU.CAMPAIGNS_LIST', path: '/public-profile/campaigns/list' },
+          { title: 'USER.MENU.EMPTY', path: '/public-profile/empty' },
         ],
       },
     ],
   },
   {
-    title: 'My Account',
+    title: 'USER.MENU.MY_ACCOUNT',
     icon: Settings,
     children: [
       {
-        title: 'Account',
+        title: 'NAVIGATION.MENU.ACCOUNT',
         children: [
-          { title: 'Get Started', path: '/account/home/get-started' },
+          { title: 'USER.MENU.GET_STARTED', path: '/account/home/get-started' },
           { title: 'User Profile', path: '/account/home/user-profile' },
           { title: 'Company Profile', path: '/account/home/company-profile' },
           {
@@ -528,7 +529,7 @@ export const MENU_SIDEBAR_COMPACT: MenuConfig = [
         ],
       },
       {
-        title: 'Billing',
+        title: 'USER.MENU.BILLING',
         children: [
           { title: 'Billing - Basic', path: '/account/billing/basic' },
           {
@@ -540,9 +541,9 @@ export const MENU_SIDEBAR_COMPACT: MenuConfig = [
         ],
       },
       {
-        title: 'Security',
+        title: 'USER.MENU.SECURITY',
         children: [
-          { title: 'Get Started', path: '/account/security/get-started' },
+          { title: 'USER.MENU.GET_STARTED', path: '/account/security/get-started' },
           { title: 'Security Overview', path: '/account/security/overview' },
           {
             title: 'Allowed IP Addresses',
@@ -568,10 +569,10 @@ export const MENU_SIDEBAR_COMPACT: MenuConfig = [
         ],
       },
       {
-        title: 'Members & Roles',
+        title: 'USER.MENU.MEMBERS_&_ROLES',
         children: [
           { title: 'Teams Starter', path: '/account/members/team-starter' },
-          { title: 'Teams', path: '/account/members/teams' },
+          { title: 'USER.MENU.TEAMS', path: '/account/members/teams' },
           { title: 'Team Info', path: '/account/members/team-info' },
           {
             title: 'Members Starter',
@@ -590,34 +591,34 @@ export const MENU_SIDEBAR_COMPACT: MenuConfig = [
           },
         ],
       },
-      { title: 'Integrations', path: '/account/integrations' },
-      { title: 'Notifications', path: '/account/notifications' },
-      { title: 'API Keys', path: '/account/api-keys' },
+      { title: 'USER.MENU.INTEGRATIONS', path: '/account/integrations' },
+      { title: 'USER.MENU.NOTIFICATIONS', path: '/account/notifications' },
+      { title: 'USER.MENU.API_KEYS', path: '/account/api-keys' },
       {
-        title: 'More',
+        title: 'USER.MENU.MORE',
         collapse: true,
-        collapseTitle: 'Show less',
-        expandTitle: 'Show 3 more',
+        collapseTitle: 'COMMON.LABELS.SHOW_LESS',
+        expandTitle: 'COMMON.LABELS.SHOW_MORE',
         children: [
           { title: 'Appearance', path: '/account/appearance' },
           { title: 'Invite a Friend', path: '/account/invite-a-friend' },
-          { title: 'Activity', path: '/account/activity' },
+          { title: 'USER.MENU.ACTIVITY', path: '/account/activity' },
         ],
       },
     ],
   },
   {
-    title: 'Network',
+    title: 'NAVIGATION.MENU.NETWORK',
     icon: Users,
     children: [
-      { title: 'Get Started', path: '/network/get-started' },
+      { title: 'USER.MENU.GET_STARTED', path: '/network/get-started' },
       {
         title: 'User Cards',
         children: [
           { title: 'Mini Cards', path: '/network/user-cards/mini-cards' },
           { title: 'Team Crew', path: '/network/user-cards/team-crew' },
           { title: 'Author', path: '/network/user-cards/author' },
-          { title: 'NFT', path: '/network/user-cards/nft' },
+          { title: 'USER.MENU.NFT', path: '/network/user-cards/nft' },
           { title: 'Social', path: '/network/user-cards/social' },
         ],
       },

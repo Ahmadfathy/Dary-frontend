@@ -5,6 +5,7 @@ import { useDataGrid } from '@/components/ui/data-grid';
 import { Cell, Column, flexRender, Header, HeaderGroup, Row } from '@tanstack/react-table';
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/providers/i18n-provider';
 
 const headerCellSpacingVariants = cva('', {
   variants: {
@@ -343,12 +344,13 @@ function DataGridTableBodyRowCell<TData>({
 
 function DataGridTableEmpty() {
   const { table, props } = useDataGrid();
+  const { t } = useLanguage();
   const totalColumns = table.getAllColumns().length;
 
   return (
     <tr>
       <td colSpan={totalColumns} className="text-center text-muted-foreground py-6">
-        {props.emptyMessage || 'No data available'}
+        {props.emptyMessage || t('MESSAGES.NO_DATA')}
       </td>
     </tr>
   );
@@ -356,6 +358,7 @@ function DataGridTableEmpty() {
 
 function DataGridTableLoader() {
   const { props } = useDataGrid();
+  const { t } = useLanguage();
 
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -373,7 +376,7 @@ function DataGridTableLoader() {
             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
           ></path>
         </svg>
-        {props.loadingMessage || 'Loading...'}
+        {props.loadingMessage || t('COMMON.LABELS.LOADING')}
       </div>
     </div>
   );

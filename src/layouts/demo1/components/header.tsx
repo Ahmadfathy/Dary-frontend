@@ -29,8 +29,8 @@ import {
 } from '@/components/ui/sheet';
 import { Container } from '@/components/common/container';
 import { Breadcrumb } from './breadcrumb';
-import { MegaMenu } from './mega-menu';
-import { MegaMenuMobile } from './mega-menu-mobile';
+// import { MegaMenu } from './mega-menu';
+// import { MegaMenuMobile } from './mega-menu-mobile';
 import { SidebarMenu } from './sidebar-menu';
 
 export function Header() {
@@ -106,7 +106,7 @@ export function Header() {
                 >
                   <SheetHeader className="p-0 space-y-0" />
                   <SheetBody className="p-0 overflow-y-auto">
-                    <MegaMenuMobile />
+                    {/* <MegaMenuMobile /> */}
                   </SheetBody>
                 </SheetContent>
               </Sheet>
@@ -115,11 +115,7 @@ export function Header() {
         </div>
 
         {/* Main Content (MegaMenu or Breadcrumbs) */}
-        {pathname.startsWith('/account') ? (
-          <Breadcrumb />
-        ) : (
-          !mobileMode && <MegaMenu />
-        )}
+        <Breadcrumb />
 
         {/* HeaderTopbar */}
         <div className="flex items-center gap-3">

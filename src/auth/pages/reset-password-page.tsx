@@ -79,10 +79,10 @@ export function ResetPasswordPage() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
           <div className="text-center space-y-2">
             <h1 className="text-2xl font-bold tracking-tight">
-              Reset Password
+              {t('AUTH.PASSWORD.RESET_TITLE')}
             </h1>
             <p className="text-sm text-muted-foreground">
-              Enter your email to receive a password reset link
+              {t('AUTH.PASSWORD.RESET_DESCRIPTION')}
             </p>
           </div>
 
@@ -127,10 +127,10 @@ export function ResetPasswordPage() {
             <Button type="submit" className="w-full" disabled={isProcessing}>
               {isProcessing ? (
                 <span className="flex items-center gap-2">
-                  <LoaderCircleIcon className="h-4 w-4 animate-spin" /> Sending Link...
+                  <LoaderCircleIcon className="h-4 w-4 animate-spin" /> {t('AUTH.PASSWORD.SENDING_LINK')}
                 </span>
               ) : (
-                'Send Reset Link'
+                t('AUTH.PASSWORD.SEND_LINK')
               )}
             </Button>
           </div>
@@ -140,7 +140,7 @@ export function ResetPasswordPage() {
               to="/auth/signin"
               className="inline-flex items-center gap-2 text-sm font-semibold text-accent-foreground hover:underline hover:underline-offset-2"
             >
-              <MoveLeft className="size-3.5 opacity-70" /> Back to Sign In
+              <MoveLeft className="size-3.5 opacity-70" /> {t('AUTH.PASSWORD.BACK_TO_SIGN_IN')}
             </Link>
           </div>
         </form>

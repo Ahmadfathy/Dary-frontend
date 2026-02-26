@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/providers/i18n-provider';
 import {
   AccordionMenu,
   AccordionMenuClassNames,
@@ -40,56 +41,57 @@ interface ItemChild {
 }
 
 export function SidebarMenuSecondary() {
+  const { t } = useLanguage();
   const items: Item[] = [
     {
-      title: 'Spaces',
+      title: 'SIDEBAR.SPACES',
       value: 'spaces',
       plus: true,
       children: [
         {
           icon: BarChart,
-          title: 'Metrics Hub',
+          title: 'SIDEBAR.METRICS_HUB',
           path: 'public-profile/profiles/creator',
         },
         {
           icon: Database,
-          title: 'Data Lab',
+          title: 'SIDEBAR.DATA_LAB',
           active: true,
           path: 'public-profile/profiles/company',
         },
         {
           icon: Share2,
-          title: 'Creative Commons',
+          title: 'SIDEBAR.CREATIVE_COMMONS',
           path: 'public-profile/profiles/nft',
         },
         {
           icon: Activity,
-          title: 'KPI Monitor',
+          title: 'SIDEBAR.KPI_MONITOR',
           path: 'public-profile/profiles/blogger',
         },
       ],
     },
     {
-      title: 'Favorites',
+      title: 'SIDEBAR.FAVORITES',
       value: 'favorites',
       plus: false,
       children: [
         {
           icon: Star,
-          title: 'Post Date',
+          title: 'SIDEBAR.POST_DATE',
           path: 'network/user-cards/mini-cards',
         },
         {
           icon: FileText,
-          title: 'Licencias Creative',
+          title: 'SIDEBAR.LICENCIAS_CREATIVE',
           path: 'network/user-cards/team-crew',
         },
         {
           icon: Users,
-          title: 'Open Content',
+          title: 'SIDEBAR.OPEN_CONTENT',
           path: 'network/user-cards/author',
         },
-        { icon: Lock, title: 'Copyright', path: 'network/user-cards/nft' },
+        { icon: Lock, title: 'SIDEBAR.COPYRIGHT', path: 'network/user-cards/nft' },
       ],
     },
   ];
@@ -120,7 +122,7 @@ export function SidebarMenuSecondary() {
               <AccordionMenuSubTrigger>
                 <div className="flex items-center gap-2">
                   <ChevronDown className={cn('text-sm')} />
-                  <span>{item.title}</span>
+                  <span>{t(item.title)}</span>
                 </div>
               </AccordionMenuSubTrigger>
               <AccordionMenuSubContent
@@ -140,7 +142,7 @@ export function SidebarMenuSecondary() {
                           <child.icon className="size-4" />
                         </span>
                       )}
-                      {child.title}
+                      {t(child.title)}
                     </Link>
                   </AccordionMenuItem>
                 ))}

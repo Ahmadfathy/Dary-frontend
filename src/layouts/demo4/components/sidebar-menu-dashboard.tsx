@@ -15,6 +15,7 @@ import {
   AccordionMenuItem,
   AccordionMenuLabel,
 } from '@/components/ui/accordion-menu';
+import { useLanguage } from '@/providers/i18n-provider';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -44,31 +45,32 @@ type MenuNode = MenuItem | MenuLabel;
 
 export function SidebarMenuDashboard() {
   const { pathname } = useLocation();
+  const { t } = useLanguage();
 
   const dropdownItems: DropdownItem[] = [
     {
-      title: 'Client API',
+      title: t('Client API'),
       path: '/account/home/user-profile',
       icon: SquareCode,
       active: true,
     },
     {
-      title: 'Profile',
+      title: t('Profile'),
       path: '/public-profile/profiles/company',
       icon: UserCircle,
     },
     {
-      title: 'My Account',
+      title: t('My Account'),
       path: '/account/integrations',
       icon: Settings,
     },
     {
-      title: 'Projects',
+      title: t('Projects'),
       path: '/public-profile/projects/3-columns',
       icon: FileText,
     },
     {
-      title: 'Personal info',
+      title: t('Personal info'),
       path: '/public-profile/profiles/creator',
       icon: Badge,
     },
@@ -78,29 +80,29 @@ export function SidebarMenuDashboard() {
 
   const menuItems = useMemo<MenuNode[]>(
     () => [
-      { label: 'Configuration' },
-      { title: 'API Setup', path: '/account/api-keys' },
-      { title: 'Team Settings', path: '/account/home/settings-sidebar' },
-      { title: 'Authentication', path: '/authentication/classic/sign-in' },
-      { title: 'Endpoints Configs', path: '/account/appearance' },
-      { title: 'Rate Limiting', path: '/public-profile/network' },
-      { label: 'Security' },
-      { title: 'Data Encryption', path: '/account/billing/enterprise' },
-      { title: 'Text', path: '/account/security/overview' },
-      { title: 'Access Control', path: '/account/security/privacy-settings' },
-      { label: 'Analytics' },
+      { label: t('Configuration') },
+      { title: t('API Setup'), path: '/account/api-keys' },
+      { title: t('Team Settings'), path: '/account/home/settings-sidebar' },
+      { title: t('Authentication'), path: '/authentication/classic/sign-in' },
+      { title: t('Endpoints Configs'), path: '/account/appearance' },
+      { title: t('Rate Limiting'), path: '/public-profile/network' },
+      { label: t('Security') },
+      { title: t('Data Encryption'), path: '/account/billing/enterprise' },
+      { title: t('Text'), path: '/account/security/overview' },
+      { title: t('Access Control'), path: '/account/security/privacy-settings' },
+      { label: t('Analytics') },
       {
-        title: 'Incident Response',
+        title: t('Incident Response'),
         path: '/account/security/current-sessions',
       },
-      { title: 'Fetching Data', path: '/account/members/team-info' },
-      { title: 'Custom Reports', path: '/account/home/user-profile' },
+      { title: t('Fetching Data'), path: '/account/members/team-info' },
+      { title: t('Custom Reports'), path: '/account/home/user-profile' },
       {
-        title: 'Real Time Analytics',
+        title: t('Real Time Analytics'),
         path: '/account/home/settings-enterprise',
       },
-      { title: 'Exporting Data', path: '/account/members/import-members' },
-      { title: 'Dashboard Integration', path: '/account/members/team-info' },
+      { title: t('Exporting Data'), path: '/account/members/import-members' },
+      { title: t('Dashboard Integration'), path: '/account/members/team-info' },
     ],
     [],
   );

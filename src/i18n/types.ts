@@ -17,4 +17,7 @@ export interface I18nProviderProps {
   isRTL: () => boolean;
 
   changeLanguage: (lang: Language) => void;
+
+  // helper to retrieve translation for a given key
+  t: (key: string) => string;
 }

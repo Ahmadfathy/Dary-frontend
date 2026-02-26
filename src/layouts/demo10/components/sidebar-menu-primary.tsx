@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { MENU_SIDEBAR_COMPACT } from '@/config/menu.config';
 import { MenuConfig, MenuItem } from '@/config/types';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/providers/i18n-provider';
 import {
   AccordionMenu,
   AccordionMenuClassNames,
@@ -18,6 +19,7 @@ import {
 
 export function SidebarMenuPrimary() {
   const { pathname } = useLocation();
+  const { t } = useLanguage();
 
   // Memoize matchPath to prevent unnecessary re-renders
   const matchPath = useCallback(
@@ -56,7 +58,7 @@ export function SidebarMenuPrimary() {
         <AccordionMenuSub key={index} value={item.path || `root-${index}`}>
           <AccordionMenuSubTrigger className="text-sm font-medium">
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-            <span data-slot="accordion-menu-title">{item.title}</span>
+            <span data-slot="accordion-menu-title">{t(item.title)}</span>
           </AccordionMenuSubTrigger>
           <AccordionMenuSubContent
             type="single"
@@ -79,7 +81,7 @@ export function SidebarMenuPrimary() {
         >
           <Link to={item.path || '#'}>
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-            <span data-slot="accordion-menu-title">{item.title}</span>
+            <span data-slot="accordion-menu-title">{t(item.title)}</span>
           </Link>
         </AccordionMenuItem>
       );

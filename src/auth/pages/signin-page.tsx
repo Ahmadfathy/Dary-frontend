@@ -20,6 +20,7 @@ import { Input } from '@/components/ui/input';
 import { Icons } from '@/components/common/icons';
 import { getSigninSchema, SigninSchemaType } from '../forms/signin-schema';
 import { LoaderCircleIcon } from 'lucide-react';
+import { useLanguage } from '@/providers/i18n-provider';
 
 export function SignInPage() {
   const [searchParams] = useSearchParams();
@@ -27,6 +28,7 @@ export function SignInPage() {
   const { login } = useAuth();
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+  const { t } = useLanguage();
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
@@ -38,9 +40,7 @@ export function SignInPage() {
     const errorDescription = searchParams.get('error_description');
 
     if (pwdReset === 'success') {
-      setSuccessMessage(
-        'Your password has been successfully reset. You can now sign in with your new password.',
-      );
+      setSuccessMessage(t('AUTH.LOGIN.PASSWORD_RESET_SUCCESS'));
     }
 
     if (errorParam) {
@@ -151,9 +151,9 @@ export function SignInPage() {
         className="block w-full space-y-5"
       >
         <div className="text-center space-y-1 pb-3">
-          <h1 className="text-2xl font-semibold tracking-tight">Sign In</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">{t('AUTH.LOGIN.TITLE')}</h1>
           <p className="text-sm text-muted-foreground">
-            Welcome back! Log in with your credentials.
+            {t('AUTH.LOGIN.WELCOME')}
           </p>
         </div>
 
@@ -176,12 +176,11 @@ export function SignInPage() {
           >
             {isGoogleLoading ? (
               <span className="flex items-center gap-2">
-                <LoaderCircleIcon className="size-4! animate-spin" /> Signing in with
-                Google...
+                <LoaderCircleIcon className="size-4! animate-spin" /> {t('AUTH.LOGIN.GOOGLE_SIGNING_IN')}
               </span>
             ) : (
               <>
-                <Icons.googleColorful className="size-5!" /> Sign in with Google
+                <Icons.googleColorful className="size-5!" /> {t('AUTH.LOGIN.GOOGLE_SIGNIN')}
               </>
             )}
           </Button>
@@ -192,7 +191,7 @@ export function SignInPage() {
             <span className="w-full border-t" />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-background px-2 text-muted-foreground">or</span>
+            <span className="bg-background px-2 text-muted-foreground">{t('COMMON.LABELS.OR')}</span>
           </div>
         </div>
 
@@ -279,14 +278,14 @@ export function SignInPage() {
                     />
                   </FormControl>
                   <FormLabel className="text-sm font-normal cursor-pointer">
-                    Remember me
+                    {t('AUTH.LOGIN.REMEMBER_ME')}
                   </FormLabel>
                 </div>
                 <Link
                   to="/auth/reset-password"
                   className="text-sm font-semibold text-foreground hover:text-primary"
                 >
-                  Forgot Password?
+                  {t('AUTH.LOGIN.FORGOT_PASSWORD')}
                 </Link>
               </div>
             </FormItem>
@@ -296,10 +295,10 @@ export function SignInPage() {
         <Button type="submit" className="w-full" disabled={isProcessing}>
           {isProcessing ? (
             <span className="flex items-center gap-2">
-              <LoaderCircleIcon className="h-4 w-4 animate-spin" /> Loading...
+              <LoaderCircleIcon className="h-4 w-4 animate-spin" /> {t('COMMON.LABELS.LOADING')}
             </span>
           ) : (
-            'Sign In'
+            t('AUTH.LOGIN.SIGN_IN')
           )}
         </Button>
 

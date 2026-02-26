@@ -6,6 +6,22 @@
 
 /** Global Styles **/
 @layer base {
+  /* Font Configuration */
+  :root {
+    --font-english: 'Bpmf Huninn', sans-serif;
+    --font-arabic: 'Zain', sans-serif;
+  }
+
+  /* Apply Bpmf Huninn for English (LTR) */
+  html[dir='ltr'] {
+    font-family: var(--font-english);
+  }
+
+  /* Apply Zain for Arabic (RTL) */
+  html[dir='rtl'] {
+    font-family: var(--font-arabic);
+  }
+
   * {
     @apply border-border;
   }

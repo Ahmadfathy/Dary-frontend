@@ -1,7 +1,10 @@
 import { cn } from '@/lib/utils';
 import { LoaderCircleIcon } from 'lucide-react';
+import { useLanguage } from '@/providers/i18n-provider';
 
 export function ContentLoader({ className }: { className?: string }) {
+  const { t } = useLanguage();
+
   return (
     <div
       className={cn('flex items-center justify-center grow w-full', className)}
@@ -9,7 +12,7 @@ export function ContentLoader({ className }: { className?: string }) {
       <div className="flex items-center gap-2.5">
         <LoaderCircleIcon className="animate-spin text-muted-foreground opacity-50" />
         <span className="text-muted-foreground font-medium text-sm">
-          Loading...
+          {t('COMMON.LABELS.LOADING')}
         </span>
       </div>
     </div>

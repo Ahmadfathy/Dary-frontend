@@ -6,6 +6,7 @@ import { MENU_SIDEBAR } from '@/config/menu.config';
 import { MenuConfig, MenuItem } from '@/config/types';
 import { cn } from '@/lib/utils';
 import { useMenu } from '@/hooks/use-menu';
+import { useLanguage } from '@/providers/i18n-provider';
 import {
   AccordionMenu,
   AccordionMenuClassNames,
@@ -20,6 +21,7 @@ import { Badge } from '@/components/ui/badge';
 
 export function SidebarMenuDefault() {
   const { pathname } = useLocation();
+  const { t } = useLanguage();
 
   // Memoize matchPath to prevent unnecessary re-renders
   const matchPath = useCallback(
@@ -61,7 +63,7 @@ export function SidebarMenuDefault() {
         <AccordionMenuSub key={index} value={item.path || `root-${index}`}>
           <AccordionMenuSubTrigger className="text-sm font-medium">
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-            <span data-slot="accordion-menu-title">{item.title}</span>
+            <span data-slot="accordion-menu-title">{t(item.title)}</span>
           </AccordionMenuSubTrigger>
           <AccordionMenuSubContent
             type="single"
@@ -86,7 +88,7 @@ export function SidebarMenuDefault() {
             className="flex items-center justify-between grow gap-2"
           >
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-            <span data-slot="accordion-menu-title">{item.title}</span>
+            <span data-slot="accordion-menu-title">{t(item.title)}</span>
           </Link>
         </AccordionMenuItem>
       );
@@ -104,10 +106,10 @@ export function SidebarMenuDefault() {
         className="text-sm font-medium"
       >
         {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-        <span data-slot="accordion-menu-title">{item.title}</span>
+        <span data-slot="accordion-menu-title">{t(item.title)}</span>
         {item.disabled && (
           <Badge variant="secondary" size="sm" className="ms-auto me-[-10px]">
-            Soon
+            {t('COMMON.LABELS.COMING_SOON')}
           </Badge>
         )}
       </AccordionMenuItem>
@@ -149,7 +151,7 @@ export function SidebarMenuDefault() {
                 </span>
               </span>
             ) : (
-              item.title
+              t(item.title)
             )}
           </AccordionMenuSubTrigger>
           <AccordionMenuSubContent
@@ -178,7 +180,7 @@ export function SidebarMenuDefault() {
           value={item.path || ''}
           className="text-[13px]"
         >
-          <Link to={item.path || '#'}>{item.title}</Link>
+          <Link to={item.path || '#'}>{t(item.title)}</Link>
         </AccordionMenuItem>
       );
     }
@@ -195,10 +197,10 @@ export function SidebarMenuDefault() {
         value={`disabled-child-${level}-${index}`}
         className="text-[13px]"
       >
-        <span data-slot="accordion-menu-title">{item.title}</span>
+        <span data-slot="accordion-menu-title">{t(item.title)}</span>
         {item.disabled && (
           <Badge variant="secondary" size="sm" className="ms-auto me-[-10px]">
-            Soon
+            {t('COMMON.LABELS.COMING_SOON')}
           </Badge>
         )}
       </AccordionMenuItem>

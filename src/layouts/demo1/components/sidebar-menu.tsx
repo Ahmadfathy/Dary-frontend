@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { MENU_SIDEBAR } from '@/config/menu.config';
 import { MenuConfig, MenuItem } from '@/config/types';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/providers/i18n-provider';
 import {
   AccordionMenu,
   AccordionMenuClassNames,
@@ -19,6 +20,7 @@ import { Badge } from '@/components/ui/badge';
 
 export function SidebarMenu() {
   const { pathname } = useLocation();
+  const { t } = useLanguage();
 
   // Memoize matchPath to prevent unnecessary re-renders
   const matchPath = useCallback(
@@ -60,7 +62,7 @@ export function SidebarMenu() {
         <AccordionMenuSub key={index} value={item.path || `root-${index}`}>
           <AccordionMenuSubTrigger className="text-sm font-medium">
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-            <span data-slot="accordion-menu-title">{item.title}</span>
+            <span data-slot="accordion-menu-title">{t(item.title)}</span>
           </AccordionMenuSubTrigger>
           <AccordionMenuSubContent
             type="single"
@@ -86,7 +88,7 @@ export function SidebarMenu() {
             className="flex items-center justify-between grow gap-2"
           >
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-            <span data-slot="accordion-menu-title">{item.title}</span>
+            <span data-slot="accordion-menu-title">{t(item.title)}</span>
           </Link>
         </AccordionMenuItem>
       );
@@ -104,10 +106,10 @@ export function SidebarMenu() {
         className="text-sm font-medium"
       >
         {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-        <span data-slot="accordion-menu-title">{item.title}</span>
+        <span data-slot="accordion-menu-title">{t(item.title)}</span>
         {item.disabled && (
           <Badge variant="secondary" size="sm" className="ms-auto me-[-10px]">
-            Soon
+            {t('COMMON.LABELS.COMING_SOON')}
           </Badge>
         )}
       </AccordionMenuItem>
@@ -142,14 +144,14 @@ export function SidebarMenu() {
             {item.collapse ? (
               <span className="text-muted-foreground">
                 <span className="hidden [[data-state=open]>span>&]:inline">
-                  {item.collapseTitle}
+                  {t(item.collapseTitle)}
                 </span>
                 <span className="inline [[data-state=open]>span>&]:hidden">
-                  {item.expandTitle}
+                  {t(item.expandTitle)}
                 </span>
               </span>
             ) : (
-              item.title
+              t(item.title)
             )}
           </AccordionMenuSubTrigger>
           <AccordionMenuSubContent
@@ -178,7 +180,7 @@ export function SidebarMenu() {
           value={item.path || ''}
           className="text-[13px]"
         >
-          <Link to={item.path || '#'}>{item.title}</Link>
+          <Link to={item.path || '#'}>{t(item.title)}</Link>
         </AccordionMenuItem>
       );
     }
@@ -195,10 +197,10 @@ export function SidebarMenu() {
         value={`disabled-child-${level}-${index}`}
         className="text-[13px]"
       >
-        <span data-slot="accordion-menu-title">{item.title}</span>
+        <span data-slot="accordion-menu-title">{t(item.title)}</span>
         {item.disabled && (
           <Badge variant="secondary" size="sm" className="ms-auto me-[-10px]">
-            Soon
+            {t('COMMON.LABELS.COMING_SOON')}
           </Badge>
         )}
       </AccordionMenuItem>
@@ -206,7 +208,7 @@ export function SidebarMenu() {
   };
 
   const buildMenuHeading = (item: MenuItem, index: number): JSX.Element => {
-    return <AccordionMenuLabel key={index}>{item.heading}</AccordionMenuLabel>;
+    return <AccordionMenuLabel key={index}>{t(item.heading)}</AccordionMenuLabel>;
   };
 
   return (

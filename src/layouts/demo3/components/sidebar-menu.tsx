@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/providers/i18n-provider';
 import { Button } from '@/components/ui/button';
 import {
   Tooltip,
@@ -29,57 +30,62 @@ export interface Item {
 }
 
 export function SidebarMenu() {
+  const { currenLanguage } = useLanguage();
+  
+  // Translation helper
+  const t = (key: string) => (currenLanguage.messages[key] as string) || key;
+
   const items: Item[] = [
     {
       icon: BarChart3,
       path: '/',
-      title: 'Dashboard',
+      title: t('NAVIGATION.MENU.DASHBOARD'),
     },
     {
       icon: UserCircle,
       path: '/public-profile/profiles/default',
-      title: 'Profile',
+      title: t('NAVIGATION.MENU.PROFILE'),
     },
     {
       icon: Settings,
       path: '/account/home/get-started',
-      title: 'Account',
+      title: t('NAVIGATION.MENU.ACCOUNT'),
     },
     {
       icon: Users,
       path: '/network/get-started',
-      title: 'Network',
+      title: t('NAVIGATION.MENU.NETWORK'),
       active: true,
     },
     {
       icon: Shield,
       path: '/account/billing/plans',
-      title: 'Plans',
+      title: t('ACCOUNT.BILLING.PLAN'),
     },
     {
       icon: MessageSquare,
       path: '/account/security/security-log',
-      title: 'Security Logs',
+      title: t('ACCOUNT.SECURITY.SESSIONS'),
     },
     {
       icon: Bell,
       path: '/account/notifications',
-      title: 'Notifications',
+      title: t('ACCOUNT.NOTIFICATIONS.NOTIFICATION_SETTINGS'),
     },
     {
       icon: CheckSquare,
       path: '/account/members/roles',
-      title: 'ACL',
+      title: t('ACCOUNT.MEMBERS.ROLE'),
     },
     {
       icon: Code,
       path: '/account/api-keys',
-      title: 'API Keys',
+      title: t('ACCOUNT.MEMBERS.API_KEYS'),
     },
     {
       icon: HelpCircle,
       path: 'https://docs.keenthemes.com/metronic-vite',
-      title: 'Docs',
+      title: t('NAVIGATION.MENU.HELP'),
     },
   ];
 

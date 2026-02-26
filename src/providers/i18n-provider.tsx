@@ -46,6 +46,8 @@ const initialProps: I18nProviderProps = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   changeLanguage: (_: Language) => {},
   isRTL: () => false,
+  // placeholder, will be replaced when provider mounts
+  t: (key: string) => key,
 };
 
 const TranslationsContext = createContext<I18nProviderProps>(initialProps);
@@ -65,6 +67,45 @@ const I18nProvider = ({ children }: PropsWithChildren) => {
     return currenLanguage.direction === 'rtl';
   };
 
+  // translation helper with fallback prefixes
+  const t = (key: string): string => {
+    const messages = currenLanguage.messages as Record<string, string>;
+
+    // direct lookup
+    if (messages[key]) {
+      return messages[key];
+    }
+
+    // normalization: uppercase and replace non-alphanumeric with underscore
+    const normalized = key
+      .toUpperCase()
+      .replace(/[^A-Z0-9]+/g, '_')
+      .replace(/^_|_$/g, '');
+
+    const prefixes = [
+      'USER.MENU',
+      'NAVIGATION.MENU',
+      'COMMON.LABELS',
+      'ACCOUNT.BILLING',
+      'ACCOUNT.SECURITY',
+      'ACCOUNT.MEMBERS',
+      'ACCOUNT.NOTIFICATIONS',
+      'AUTH.LOGIN',
+      'AUTH.SIGNUP',
+      'AUTH.PASSWORD',
+      'SIDEBAR',
+    ];
+
+    for (const prefix of prefixes) {
+      const candidate = `${prefix}.${normalized}`;
+      if (messages[candidate]) {
+        return messages[candidate] as string;
+      }
+    }
+
+    return key;
+  };
+
   useEffect(() => {
     document.documentElement.setAttribute('dir', currenLanguage.direction);
   }, [currenLanguage]);
@@ -75,6 +116,7 @@ const I18nProvider = ({ children }: PropsWithChildren) => {
         isRTL,
         currenLanguage,
         changeLanguage,
+        t,
       }}
     >
       <IntlProvider
