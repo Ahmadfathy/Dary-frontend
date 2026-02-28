@@ -18,10 +18,12 @@ import {
 import { Input } from '@/components/ui/input';
 import { LoaderCircleIcon } from 'lucide-react';
 import { getSignupSchema, SignupSchemaType } from '../forms/signup-schema';
+import { useLanguage } from '@/providers/i18n-provider';
 
 export function SignUpPage() {
   const navigate = useNavigate();
   const { register } = useAuth();
+  const { t } = useLanguage();
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -85,7 +87,7 @@ export function SignUpPage() {
         className="block w-full space-y-5"
       >
         <div className="text-center space-y-1 pb-3">
-          <h1 className="text-2xl font-semibold tracking-tight">Sign Up</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">{t('AUTH.SIGNUP.TITLE')}</h1>
           <p className="text-sm text-muted-foreground">
             Create your account to get started
           </p>
@@ -118,9 +120,9 @@ export function SignUpPage() {
           name="firstName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>First Name</FormLabel>
+              <FormLabel>{t('AUTH.SIGNUP.FIRST_NAME')}</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your first name" {...field} />
+                <Input placeholder={t('AUTH.SIGNUP.FIRST_NAME')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -132,9 +134,9 @@ export function SignUpPage() {
           name="lastName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Last Name</FormLabel>
+              <FormLabel>{t('AUTH.SIGNUP.LAST_NAME')}</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your last name" {...field} />
+                <Input placeholder={t('AUTH.SIGNUP.LAST_NAME')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -146,10 +148,10 @@ export function SignUpPage() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t('AUTH.SIGNUP.EMAIL')}</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Your email address"
+                  placeholder={t('AUTH.SIGNUP.EMAIL')}
                   type="email"
                   {...field}
                 />
@@ -164,10 +166,10 @@ export function SignUpPage() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{t('AUTH.SIGNUP.PASSWORD')}</FormLabel>
               <div className="relative">
                 <Input
-                  placeholder="Create a password"
+                  placeholder={t('AUTH.SIGNUP.PASSWORD')}
                   type={passwordVisible ? 'text' : 'password'}
                   {...field}
                 />
@@ -176,7 +178,7 @@ export function SignUpPage() {
                   variant="ghost"
                   mode="icon"
                   onClick={() => setPasswordVisible(!passwordVisible)}
-                  className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                  className="absolute ltr:right-0 rtl:left-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                 >
                   {passwordVisible ? (
                     <EyeOff className="h-4 w-4 text-muted-foreground" />
@@ -195,10 +197,10 @@ export function SignUpPage() {
           name="confirmPassword"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Confirm Password</FormLabel>
+              <FormLabel>{t('AUTH.SIGNUP.CONFIRM_PASSWORD')}</FormLabel>
               <div className="relative">
                 <Input
-                  placeholder="Confirm your password"
+                  placeholder={t('AUTH.SIGNUP.CONFIRM_PASSWORD')}
                   type={confirmPasswordVisible ? 'text' : 'password'}
                   {...field}
                 />
@@ -209,7 +211,7 @@ export function SignUpPage() {
                   onClick={() =>
                     setConfirmPasswordVisible(!confirmPasswordVisible)
                   }
-                  className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                  className="absolute ltr:right-0 rtl:left-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                 >
                   {confirmPasswordVisible ? (
                     <EyeOff className="h-4 w-4 text-muted-foreground" />
@@ -235,14 +237,8 @@ export function SignUpPage() {
                 />
               </FormControl>
               <div className="space-y-1 leading-none">
-                <FormLabel className="text-sm text-muted-foreground">
-                  I agree to the and{' '}
-                  <Link
-                    to="#"
-                    className="text-sm font-semibold text-foreground hover:text-primary"
-                  >
-                    Privacy Policy
-                  </Link>
+                <FormLabel className="text-sm text-muted-foreground mt-1 cursor-pointer">
+                  {t('AUTH.SIGNUP.AGREE_TERMS')}
                 </FormLabel>
                 <FormMessage />
               </div>
@@ -253,20 +249,20 @@ export function SignUpPage() {
         <Button type="submit" className="w-full" disabled={isProcessing}>
           {isProcessing ? (
             <span className="flex items-center gap-2">
-              <LoaderCircleIcon className="h-4 w-4 animate-spin" /> Creating account...
+              <LoaderCircleIcon className="h-4 w-4 animate-spin" /> {t('COMMON.LABELS.LOADING')}
             </span>
           ) : (
-            'Create Account'
+            t('AUTH.SIGNUP.SIGN_UP')
           )}
         </Button>
 
         <div className="text-center text-sm text-muted-foreground">
-          Already have an account?{' '}
+          {t('AUTH.SIGNUP.ALREADY_ACCOUNT')}{' '}
           <Link
             to="/auth/signin"
             className="text-sm font-semibold text-foreground hover:text-primary"
           >
-            Sign In
+            {t('AUTH.SIGNUP.SIGN_IN_LINK')}
           </Link>
         </div>
       </form>

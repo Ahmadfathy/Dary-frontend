@@ -5,10 +5,12 @@ import { MENU_SIDEBAR } from '@/config/menu.config';
 import { MenuItem } from '@/config/types';
 import { cn } from '@/lib/utils';
 import { useMenu } from '@/hooks/use-menu';
+import { useLanguage } from '@/providers/i18n-provider';
 
 export function Breadcrumb() {
   const { pathname } = useLocation();
   const { getBreadcrumb, isActive } = useMenu(pathname);
+  const { t } = useLanguage();
   const items: MenuItem[] = getBreadcrumb(MENU_SIDEBAR);
 
   if (items.length === 0) {
@@ -27,7 +29,7 @@ export function Breadcrumb() {
               className={cn(active ? 'text-mono' : 'text-secondary-foreground')}
               key={`item-${index}`}
             >
-              {item.title}
+              {t(item.title)}
             </span>
             {!last && (
               <ChevronRight

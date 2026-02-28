@@ -1,10 +1,10 @@
 import {
-  ChannelStats,
-  EarningsChart,
-  EntryCallout,
-  Highlights,
-  TeamMeeting,
-  Teams,
+  PropertyStats,
+  RevenueChart,
+  MarketOverview,
+  RecentListings,
+  UpcomingViewings,
+  ActiveAgents,
 } from './components';
 
 export function Demo1LightSidebarContent() {
@@ -13,27 +13,27 @@ export function Demo1LightSidebarContent() {
       <div className="grid lg:grid-cols-3 gap-y-5 lg:gap-7.5 items-stretch">
         <div className="lg:col-span-1">
           <div className="grid grid-cols-2 gap-5 lg:gap-7.5 h-full items-stretch">
-            <ChannelStats />
+            <PropertyStats />
           </div>
         </div>
         <div className="lg:col-span-2">
-          <EntryCallout className="h-full" />
+          <MarketOverview className="h-full" />
         </div>
       </div>
       <div className="grid lg:grid-cols-3 gap-5 lg:gap-7.5 items-stretch">
         <div className="lg:col-span-1">
-          <Highlights limit={3} />
+          <RecentListings limit={3} />
         </div>
         <div className="lg:col-span-2">
-          <EarningsChart />
+          <RevenueChart />
         </div>
       </div>
       <div className="grid lg:grid-cols-3 gap-5 lg:gap-7.5 items-stretch">
         <div className="lg:col-span-1">
-          <TeamMeeting />
+          <UpcomingViewings />
         </div>
         <div className="lg:col-span-2">
-          <Teams />
+          <ActiveAgents />
         </div>
       </div>
     </div>

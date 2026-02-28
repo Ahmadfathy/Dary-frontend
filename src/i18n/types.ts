@@ -19,5 +19,5 @@ export interface I18nProviderProps {
   changeLanguage: (lang: Language) => void;
 
   // helper to retrieve translation for a given key
-  t: (key: string) => string;
+  t: (key?: string) => string;
 }

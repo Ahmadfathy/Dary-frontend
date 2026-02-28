@@ -2,7 +2,7 @@ import {
   BlockList,
   ReportSettings,
 } from '@/pages/account/security/privacy-settings';
-import { EntryCallout, Teams } from '@/pages/dashboards/demo1';
+import { MarketOverview, ActiveAgents } from '@/pages/dashboards/demo1';
 import { Integrations, ManageData, MyBalance, Options } from './components';
 
 export function Demo2Content() {
@@ -20,7 +20,7 @@ export function Demo2Content() {
       </div>
       <div className="grid lg:grid-cols-3 gap-5 lg:gap-7.5 items-stretch">
         <div className="lg:col-span-2">
-          <EntryCallout className="h-full" />
+          <MarketOverview className="h-full" />
         </div>
         <div className="lg:col-span-1">
           <ReportSettings className="h-full" />
@@ -39,7 +39,7 @@ export function Demo2Content() {
       </div>
       <div className="grid lg:grid-cols-3 gap-5 lg:gap-7.5 items-stretch">
         <div className="lg:col-span-2">
-          <Teams />
+          <ActiveAgents />
         </div>
         <div className="lg:col-span-1">
           <ManageData className="h-full" />

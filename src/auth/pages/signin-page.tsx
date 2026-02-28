@@ -53,13 +53,13 @@ export function SignInPage() {
         case 'auth_callback_error':
           setError(
             errorDescription ||
-              'An error occurred during authentication. Please try again.',
+            'An error occurred during authentication. Please try again.',
           );
           break;
         case 'auth_token_error':
           setError(
             errorDescription ||
-              'Failed to set authentication session. Please try again.',
+            'Failed to set authentication session. Please try again.',
           );
           break;
         default:
@@ -222,9 +222,9 @@ export function SignInPage() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t('AUTH.LOGIN.EMAIL')}</FormLabel>
               <FormControl>
-                <Input placeholder="Your email" {...field} />
+                <Input placeholder={t('AUTH.LOGIN.EMAIL')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -237,7 +237,7 @@ export function SignInPage() {
           render={({ field }) => (
             <FormItem>
               <div className="flex justify-between items-center gap-2.5">
-                <FormLabel>Password</FormLabel>
+                <FormLabel>{t('AUTH.LOGIN.PASSWORD')}</FormLabel>
               </div>
               <div className="relative">
                 <Input
@@ -250,7 +250,7 @@ export function SignInPage() {
                   variant="ghost"
                   mode="icon"
                   onClick={() => setPasswordVisible(!passwordVisible)}
-                  className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                  className="absolute ltr:right-0 rtl:left-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                 >
                   {passwordVisible ? (
                     <EyeOff className="text-muted-foreground" />
@@ -303,12 +303,12 @@ export function SignInPage() {
         </Button>
 
         <div className="text-center text-sm text-muted-foreground">
-          Don't have an account?{' '}
+          {t('AUTH.LOGIN.NO_ACCOUNT')}{' '}
           <Link
             to="/auth/signup"
             className="text-sm font-semibold text-foreground hover:text-primary"
           >
-            Sign Up
+            {t('AUTH.LOGIN.SIGN_UP_LINK')}
           </Link>
         </div>
       </form>

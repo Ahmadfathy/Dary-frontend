@@ -20,11 +20,13 @@ import {
   getNewPasswordSchema,
   NewPasswordSchemaType,
 } from '../forms/reset-password-schema';
+import { useLanguage } from '@/providers/i18n-provider';
 
 export function ChangePasswordPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const {} = useAuth();
+  const { } = useAuth();
+  const { t } = useLanguage();
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -125,7 +127,7 @@ export function ChangePasswordPage() {
     return (
       <div className="max-w-md mx-auto space-y-5">
         <div className="text-center space-y-2">
-          <h1 className="text-2xl font-bold tracking-tight">Reset Password</h1>
+          <h1 className="text-2xl font-bold tracking-tight">{t('AUTH.PASSWORD.RESET_TITLE')}</h1>
           <p className="text-sm text-muted-foreground">
             You need a valid reset link to change your password
           </p>
@@ -148,7 +150,7 @@ export function ChangePasswordPage() {
         <div className="text-center text-sm">
           <span className="text-muted-foreground">Remember your password?</span>{' '}
           <Link to="/auth/signin" className="text-primary hover:underline">
-            Sign In
+            {t('AUTH.LOGIN.SIGN_IN')}
           </Link>
         </div>
       </div>
@@ -161,7 +163,7 @@ export function ChangePasswordPage() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="text-center space-y-2">
             <h1 className="text-2xl font-bold tracking-tight">
-              Set New Password
+              {t('AUTH.PASSWORD.CHANGE_PASSWORD')}
             </h1>
             <p className="text-muted-foreground">
               Create a strong password for your account
@@ -192,10 +194,10 @@ export function ChangePasswordPage() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>New Password</FormLabel>
+                  <FormLabel>{t('AUTH.PASSWORD.NEW_PASSWORD')}</FormLabel>
                   <div className="relative">
                     <Input
-                      placeholder="Create a strong password"
+                      placeholder={t('AUTH.PASSWORD.NEW_PASSWORD')}
                       type={passwordVisible ? 'text' : 'password'}
                       autoComplete="new-password"
                       {...field}
@@ -224,10 +226,10 @@ export function ChangePasswordPage() {
               name="confirmPassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Confirm Password</FormLabel>
+                  <FormLabel>{t('AUTH.SIGNUP.CONFIRM_PASSWORD')}</FormLabel>
                   <div className="relative">
                     <Input
-                      placeholder="Verify your password"
+                      placeholder={t('AUTH.SIGNUP.CONFIRM_PASSWORD')}
                       type={confirmPasswordVisible ? 'text' : 'password'}
                       autoComplete="new-password"
                       {...field}
@@ -266,7 +268,7 @@ export function ChangePasswordPage() {
 
           <div className="text-center text-sm">
             <Link to="/auth/signin" className="text-primary hover:underline">
-              Back to Sign In
+              {t('AUTH.PASSWORD.BACK_TO_SIGN_IN')}
             </Link>
           </div>
         </form>

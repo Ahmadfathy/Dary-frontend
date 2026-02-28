@@ -44,10 +44,10 @@ const getInitialLanguage = () => {
 const initialProps: I18nProviderProps = {
   currenLanguage: getInitialLanguage(),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  changeLanguage: (_: Language) => {},
+  changeLanguage: (_: Language) => { },
   isRTL: () => false,
   // placeholder, will be replaced when provider mounts
-  t: (key: string) => key,
+  t: (key?: string) => key || '',
 };
 
 const TranslationsContext = createContext<I18nProviderProps>(initialProps);
@@ -68,7 +68,8 @@ const I18nProvider = ({ children }: PropsWithChildren) => {
   };
 
   // translation helper with fallback prefixes
-  const t = (key: string): string => {
+  const t = (key?: string): string => {
+    if (!key) return '';
     const messages = currenLanguage.messages as Record<string, string>;
 
     // direct lookup

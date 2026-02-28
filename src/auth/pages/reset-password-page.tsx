@@ -21,9 +21,11 @@ import {
   getResetRequestSchema,
   ResetRequestSchemaType,
 } from '../forms/reset-password-schema';
+import { useLanguage } from '@/providers/i18n-provider';
 
 export function ResetPasswordPage() {
-  const {} = useAuth();
+  const { } = useAuth();
+  const { t } = useLanguage();
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -110,7 +112,7 @@ export function ResetPasswordPage() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>{t('AUTH.LOGIN.EMAIL')}</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="your.email@example.com"

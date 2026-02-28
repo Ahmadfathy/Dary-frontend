@@ -1,5 +1,5 @@
 import { TeamInfo } from '@/pages/account/members/team-info/components/team-info';
-import { Teams } from '@/pages/dashboards/demo1';
+import { ActiveAgents } from '@/pages/dashboards/demo1';
 import { Faq } from '@/partials/common/faq';
 import { Options } from './components';
 
@@ -19,7 +19,7 @@ export function Demo5Content() {
         </div>
       </div>
       <div className="grid lg:grid-cols-1 gap-5 lg:gap-7.5 items-stretch">
-        <Teams />
+        <ActiveAgents />
         <Faq />
       </div>
     </div>

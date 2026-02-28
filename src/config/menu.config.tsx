@@ -58,7 +58,7 @@ import { type MenuConfig } from './types';
 
 export const MENU_SIDEBAR: MenuConfig = [
   {
-    title: 'NAVIGATION.MENU.DASHBOARDS',
+    title: 'NAVIGATION.MENU.DASHBOARD',
     icon: LayoutGrid,
     path: '/'
     // children: [

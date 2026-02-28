@@ -1,5 +1,5 @@
 import { BlockList } from '@/pages/account/security/privacy-settings';
-import { Highlights, Teams } from '@/pages/dashboards/demo1';
+import { RecentListings, ActiveAgents } from '@/pages/dashboards/demo1';
 import { ManageData } from '@/pages/dashboards/demo2/components';
 import { CreateTeam } from '@/partials/common/create-team';
 import { toAbsoluteUrl } from '@/lib/helpers';
@@ -38,17 +38,17 @@ export function Demo3Content() {
             engage={{
               path: '/public-profile/teams',
               label: 'Create Team',
-              btnColor: 'mono',
+              btnColor: 'primary',
             }}
           />
         </div>
         <div className="lg:col-span-1">
-          <Highlights />
+          <RecentListings limit={3} />
         </div>
       </div>
       <div className="grid lg:grid-cols-3 gap-5 lg:gap-7.5 items-stretch">
         <div className="lg:col-span-2">
-          <Teams />
+          <ActiveAgents />
         </div>
         <div className="lg:col-span-1">
           <BlockList

@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { BlockList } from '@/pages/account/security/privacy-settings';
 import { CreateTeam } from '@/partials/common/create-team';
 import { toAbsoluteUrl } from '@/lib/helpers';
-import { Highlights, Teams } from '..';
+import { RecentListings, ActiveAgents } from '..';
 
 export function Demo4Content() {
   return (
@@ -42,12 +42,12 @@ export function Demo4Content() {
           />
         </div>
         <div className="lg:col-span-1">
-          <Highlights />
+          <RecentListings limit={3} />
         </div>
       </div>
       <div className="grid lg:grid-cols-3 gap-5 lg:gap-7.5 items-stretch">
         <div className="lg:col-span-2">
-          <Teams />
+          <ActiveAgents />
         </div>
         <div className="lg:col-span-1">
           <BlockList

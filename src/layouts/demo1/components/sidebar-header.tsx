@@ -37,7 +37,7 @@ export function SidebarHeader() {
             alt="Default Dark Logo"
           />
           <img
-            src={toAbsoluteUrl('/media/app/mini-logo.svg')}
+            src={toAbsoluteUrl('/media/app/dary-mini.png')}
             className="small-logo h-[22px] max-w-none"
             alt="Mini Logo"
           />
