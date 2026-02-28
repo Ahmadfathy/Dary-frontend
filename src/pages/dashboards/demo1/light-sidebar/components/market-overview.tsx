@@ -42,21 +42,21 @@ const MarketOverview = ({ className }: IMarketOverviewProps) => {
               ]}
             />
             <h2 className="text-xl font-semibold text-mono">
-              {t('Welcome back')}, <br />
+              {t('أهلاً بعودتك')}, <br />
               <Button mode="link" asChild className="text-xl font-semibold">
-                <Link to="#">{t('Agent Smith')}</Link>
+                <Link to="#">{t('الوكيل سميث')}</Link>
               </Button>
             </h2>
             <p className="text-sm font-normal text-secondary-foreground leading-5.5">
-              {t('You have 3 new leads and')} <br />
-              {t('2 upcoming property')} <br />
-              {t('viewings today')}
+              {t('لديك 3 عملاء محتملين جدد و')} <br />
+              {t('معاينتين لعقارات')} <br />
+              {t('مجدولة لليوم')}
             </p>
           </div>
         </CardContent>
         <CardFooter className="justify-center">
           <Button mode="link" underlined="dashed" asChild>
-            <Link to="#">{t('View Schedule')}</Link>
+            <Link to="#">{t('عرض الجدول')}</Link>
           </Button>
         </CardFooter>
       </Card>

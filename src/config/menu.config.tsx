@@ -56,6 +56,28 @@ import {
 } from 'lucide-react';
 import { type MenuConfig } from './types';
 
+export const MENU_SIDEBAR_PROPERTIES: MenuConfig = [
+  {
+    title: 'لوحة التحكم',
+    icon: LayoutGrid,
+    path: '/'
+  },
+  {
+    title: 'كل العقارات',
+    icon: Building,
+    children: [
+      {
+        title: 'كل الايجار',
+        path: '/properties/rent'
+      },
+      {
+        title: 'كل التمليك',
+        path: '/properties/sale'
+      }
+    ]
+  }
+];
+
 export const MENU_SIDEBAR: MenuConfig = [
   {
     title: 'NAVIGATION.MENU.DASHBOARD',

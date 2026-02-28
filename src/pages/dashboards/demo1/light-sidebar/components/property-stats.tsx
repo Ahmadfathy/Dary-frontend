@@ -16,18 +16,18 @@ const PropertyStats = () => {
   const { t } = useLanguage();
 
   const items: IPropertyStatsItems = [
-    { icon: Building, info: '1,200', desc: t('Total Properties'), path: '' },
-    { icon: Home, info: '340', desc: t('Properties Sold'), path: '' },
+    { icon: Building, info: '1,200', desc: t('إجمالي العقارات'), path: '' },
+    { icon: Home, info: '340', desc: t('تم بيعها'), path: '' },
     {
       icon: Key,
       info: '850',
-      desc: t('Properties Rented'),
+      desc: t('مؤجرة'),
       path: '',
     },
     {
       icon: DollarSign,
       info: '$12.5M',
-      desc: t('Total Revenue'),
+      desc: t('إجمالي الإيرادات'),
       path: '',
     },
   ];

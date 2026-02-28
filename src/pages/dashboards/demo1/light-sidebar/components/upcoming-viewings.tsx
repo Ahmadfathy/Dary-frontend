@@ -14,7 +14,7 @@ const UpcomingViewings = () => {
         <div className="flex items-center justify-between flex-wrap gap-5 mb-7.5">
           <div className="flex flex-col gap-1">
             <span className="text-xl font-semibold text-mono">
-              {t('Property Viewing')}
+              {t('معاينات العقارات')}
             </span>
             <span className="text-sm font-semibold text-foreground">
               14:00 - 15:30
@@ -25,24 +25,24 @@ const UpcomingViewings = () => {
           </div>
         </div>
         <p className="text-sm font-normal text-foreground leading-5.5 mb-8">
-          {t('Showing the new luxury waterfront')} <br />
-          {t('condominium to the Smith family.')} <br />
-          {t('Ensure to highlight the smart home features.')}
+          {t('إظهار الوحدات السكنية الفاخرة على الواجهة المائية')} <br />
+          {t('لعائلة سميث.')} <br />
+          {t('تأكد من إبراز ميزات المنزل الذكي.')}
         </p>
         <div className="flex rounded-lg bg-accent/50 gap-10 p-5">
           <div className="flex flex-col gap-5">
             <div className="flex items-center gap-1.5 text-sm font-normal text-foreground">
               <MapPin size={16} className="text-base text-muted-foreground" />
-              {t('Location')}
+              {t('الموقع')}
             </div>
             <div className="text-sm font-medium text-foreground pt-1.5">
-              123 Ocean Drive
+              123 شارع المحيط
             </div>
           </div>
           <div className="flex flex-col gap-5">
             <div className="flex items-center gap-1.5 text-sm font-normal text-foreground">
               <Users size={16} className="text-base text-muted-foreground" />
-              {t('Clients')}
+              {t('العملاء')}
             </div>
             <AvatarGroup
               size="size-[30px]"
@@ -56,7 +56,7 @@ const UpcomingViewings = () => {
       </CardContent>
       <CardFooter className="justify-center">
         <Button mode="link" underlined="dashed" asChild>
-          <Link to="#">{t('View Details')}</Link>
+          <Link to="#">{t('عرض التفاصيل')}</Link>
         </Button>
       </CardFooter>
     </Card>

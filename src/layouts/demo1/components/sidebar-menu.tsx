@@ -2,7 +2,7 @@
 
 import { JSX, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MENU_SIDEBAR } from '@/config/menu.config';
+import { MENU_SIDEBAR_PROPERTIES } from '@/config/menu.config';
 import { MenuConfig, MenuItem } from '@/config/types';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/providers/i18n-provider';
@@ -220,7 +220,7 @@ export function SidebarMenu() {
         collapsible
         classNames={classNames}
       >
-        {buildMenu(MENU_SIDEBAR)}
+        {buildMenu(MENU_SIDEBAR_PROPERTIES)}
       </AccordionMenu>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Outlet, useLocation } from 'react-router-dom';
-import { MENU_SIDEBAR } from '@/config/menu.config';
+import { MENU_SIDEBAR_PROPERTIES } from '@/config/menu.config';
 import { useMenu } from '@/hooks/use-menu';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useSettings } from '@/providers/settings-provider';
@@ -13,7 +13,7 @@ export function Demo1Layout() {
   const isMobile = useIsMobile();
   const { pathname } = useLocation();
   const { getCurrentItem } = useMenu(pathname);
-  const item = getCurrentItem(MENU_SIDEBAR);
+  const item = getCurrentItem(MENU_SIDEBAR_PROPERTIES);
   const { settings, setOption } = useSettings();
 
   useEffect(() => {

@@ -50,38 +50,38 @@ interface IData {
 const data: IData[] = [
   {
     id: 1,
-    name: 'Cristian Mitchell',
-    role: 'Senior Agent',
+    name: 'كريستيان ميتشل',
+    role: 'وكيل أول',
     rating: 5,
     properties_sold: 45,
-    updated_at: '21 Oct, 2024',
+    updated_at: '21 تشرين الأول, 2024',
     users: [{ path: '/media/avatars/300-4.png', fallback: 'CM' }],
   },
   {
     id: 2,
-    name: 'Grace Mueller',
-    role: 'Commercial Agent',
+    name: 'جريس مولر',
+    role: 'وكيل تجاري',
     rating: 4.5,
     properties_sold: 28,
-    updated_at: '15 Oct, 2024',
+    updated_at: '15 تشرين الأول, 2024',
     users: [{ path: '/media/avatars/300-1.png', fallback: 'GM' }],
   },
   {
     id: 3,
-    name: 'Ephraim Wilderman',
-    role: 'Luxury Specialist',
+    name: 'إفرايم وايلدرمان',
+    role: 'أخصائي فخامة',
     rating: 5,
     properties_sold: 12,
-    updated_at: '10 Oct, 2024',
+    updated_at: '10 تشرين الأول, 2024',
     users: [{ path: '/media/avatars/300-2.png', fallback: 'EW' }],
   },
   {
     id: 4,
-    name: 'Colin Balistreri',
-    role: 'Listing Agent',
+    name: 'كولين باليستريري',
+    role: 'وكيل إدراج',
     rating: 4,
     properties_sold: 35,
-    updated_at: '05 Oct, 2024',
+    updated_at: '05 تشرين الأول, 2024',
     users: [{ path: '/media/avatars/300-4.png', fallback: 'CB' }],
   },
 ];
@@ -126,7 +126,7 @@ const ActiveAgents = () => {
         id: 'users',
         accessorFn: (row) => row.users,
         header: ({ column }) => (
-          <DataGridColumnHeader title={t('Avatar')} column={column} />
+          <DataGridColumnHeader title={t('الصورة')} column={column} />
         ),
         cell: ({ row }) => (
           <AvatarGroup group={row.original.users} size="size-8" />
@@ -141,7 +141,7 @@ const ActiveAgents = () => {
         id: 'name',
         accessorFn: (row) => row.name,
         header: ({ column }) => (
-          <DataGridColumnHeader title={t('Agent')} column={column} />
+          <DataGridColumnHeader title={t('الوكيل')} column={column} />
         ),
         cell: ({ row }) => (
           <div className="flex flex-col gap-2">
@@ -168,7 +168,7 @@ const ActiveAgents = () => {
         id: 'rating',
         accessorFn: (row) => row.rating,
         header: ({ column }) => (
-          <DataGridColumnHeader title="Rating" column={column} />
+          <DataGridColumnHeader title={t('التقييم')} column={column} />
         ),
         cell: ({ row }) => (
           <Rating
@@ -186,7 +186,7 @@ const ActiveAgents = () => {
         id: 'properties_sold',
         accessorFn: (row) => row.properties_sold,
         header: ({ column }) => (
-          <DataGridColumnHeader title={t('Properties Sold')} column={column} />
+          <DataGridColumnHeader title={t('العقارات المباعة')} column={column} />
         ),
         cell: ({ row }) => row.original.properties_sold,
         enableSorting: true,
@@ -199,7 +199,7 @@ const ActiveAgents = () => {
         id: 'updated_at',
         accessorFn: (row) => row.updated_at,
         header: ({ column }) => (
-          <DataGridColumnHeader title={t('Last Active')} column={column} />
+          <DataGridColumnHeader title={t('آخر نشاط')} column={column} />
         ),
         cell: ({ row }) => row.original.updated_at,
         enableSorting: true,
@@ -246,11 +246,11 @@ const ActiveAgents = () => {
     >
       <Card>
         <CardHeader className="py-3.5">
-          <CardTitle>{t('Active Agents')}</CardTitle>
+          <CardTitle>{t('الوكلاء النشطين')}</CardTitle>
           <CardToolbar className="relative">
             <Search className="size-4 text-muted-foreground absolute start-3 top-1/2 -translate-y-1/2" />
             <Input
-              placeholder={t('Search Agents...')}
+              placeholder={t('البحث عن وكلاء...')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="ps-9 w-40"

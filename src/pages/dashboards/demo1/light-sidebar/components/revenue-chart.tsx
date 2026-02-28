@@ -27,18 +27,18 @@ const RevenueChart = () => {
   const [salesData, setSalesData] = useState<number[]>(dummySalesData);
   const [rentalData, setRentalData] = useState<number[]>(dummyRentalData);
   const categories: string[] = [
-    t('Jan'),
-    t('Feb'),
-    t('Mar'),
-    t('Apr'),
-    t('May'),
-    t('Jun'),
-    t('Jul'),
-    t('Aug'),
-    t('Sep'),
-    t('Oct'),
-    t('Nov'),
-    t('Dec'),
+    t('يناير'),
+    t('فبراير'),
+    t('مارس'),
+    t('أبريل'),
+    t('مايو'),
+    t('يونيو'),
+    t('يوليو'),
+    t('أغسطس'),
+    t('سبتمبر'),
+    t('أكتوبر'),
+    t('نوفمبر'),
+    t('ديسمبر'),
   ];
 
   useEffect(() => {
@@ -50,11 +50,11 @@ const RevenueChart = () => {
   const options: ApexOptions = {
     series: [
       {
-        name: t('Property Sales'),
+        name: t('مبيعات العقارات'),
         data: salesData ?? [],
       },
       {
-        name: t('Rental Income'),
+        name: t('إيرادات الإيجار'),
         data: rentalData ?? [],
       },
     ],
@@ -141,7 +141,7 @@ const RevenueChart = () => {
 
         return `
           <div class="flex flex-col gap-2 p-3.5">
-            <div class="font-medium text-sm text-secondary-foreground">${monthName}, ${t('2024 Revenue')}</div>
+            <div class="font-medium text-sm text-secondary-foreground">${monthName}، ${t('إيرادات ٢٠٢٤')}</div>
             <div class="flex items-center gap-1.5">
               <div class="font-semibold text-base text-mono">${formattedNumber}</div>
               <span class="rounded-full border border-green-200 font-medium dark:border-green-850 text-success-700 bg-green-100 dark:bg-green-950/30 text-[11px] leading-none px-1.25 py-1">+24%</span>
@@ -195,23 +195,23 @@ const RevenueChart = () => {
   return (
     <Card className="h-full">
       <CardHeader>
-        <CardTitle>{t('Revenue')}</CardTitle>
+        <CardTitle>{t('الإيرادات')}</CardTitle>
         <div className="flex gap-5">
           <div className="flex items-center gap-2">
             <Label htmlFor="auto-update" className="text-sm">
-              {t('Show Rentals')}
+              {t('عرض الإيجارات')}
             </Label>
             <Switch id="auto-update" defaultChecked size="sm" />
           </div>
           <Select defaultValue="1">
             <SelectTrigger className="w-28">
-              <SelectValue placeholder={t('Select')} />
+              <SelectValue placeholder={t('تحديد')} />
             </SelectTrigger>
             <SelectContent className="w-28">
-              <SelectItem value="1">{t('1 month')}</SelectItem>
-              <SelectItem value="3">{t('3 months')}</SelectItem>
-              <SelectItem value="6">{t('6 months')}</SelectItem>
-              <SelectItem value="12">{t('12 months')}</SelectItem>
+              <SelectItem value="1">{t('شهر واحد')}</SelectItem>
+              <SelectItem value="3">{t('3 أشهر')}</SelectItem>
+              <SelectItem value="6">{t('6 أشهر')}</SelectItem>
+              <SelectItem value="12">{t('12 شهر')}</SelectItem>
             </SelectContent>
           </Select>
         </div>

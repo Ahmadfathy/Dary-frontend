@@ -38,21 +38,21 @@ const RecentListings = ({ limit }: IRecentListingsProps) => {
   const rows: IRecentListingsRows = [
     {
       icon: Home,
-      text: t('Residential'),
+      text: t('سكني'),
       total: 840,
       stats: 5.2,
       increase: true,
     },
     {
       icon: Building2,
-      text: t('Commercial'),
+      text: t('تجاري'),
       total: 215,
       stats: 1.2,
       increase: false,
     },
     {
       icon: MapPin,
-      text: t('Land & Lots'),
+      text: t('أراضي'),
       total: 95,
       stats: 4.8,
       increase: true,
@@ -60,9 +60,9 @@ const RecentListings = ({ limit }: IRecentListingsProps) => {
   ];
 
   const items: IRecentListingsItems = [
-    { badgeColor: 'bg-green-500', label: t('Houses') },
-    { badgeColor: 'bg-destructive', label: t('Apartments') },
-    { badgeColor: 'bg-violet-500', label: t('Condos') },
+    { badgeColor: 'bg-green-500', label: t('منازل') },
+    { badgeColor: 'bg-destructive', label: t('شقق') },
+    { badgeColor: 'bg-violet-500', label: t('عقارات أخرى') },
   ];
 
   const renderRow = (row: IRecentListingsRow, index: number) => {
@@ -104,7 +104,7 @@ const RecentListings = ({ limit }: IRecentListingsProps) => {
   return (
     <Card className="h-full">
       <CardHeader>
-        <CardTitle>{t('Recent Listings')}</CardTitle>
+        <CardTitle>{t('أحدث العقارات')}</CardTitle>
         <DropdownMenu4
           trigger={
             <Button variant="ghost" mode="icon">
@@ -116,7 +116,7 @@ const RecentListings = ({ limit }: IRecentListingsProps) => {
       <CardContent className="flex flex-col gap-4 p-5 lg:p-7.5 lg:pt-4">
         <div className="flex flex-col gap-0.5">
           <span className="text-sm font-normal text-secondary-foreground">
-            {t('Total Available')}
+            {t('إجمالي المتاح')}
           </span>
           <div className="flex items-center gap-2.5">
             <span className="text-3xl font-semibold text-mono">1,150</span>

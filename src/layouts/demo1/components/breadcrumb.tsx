@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useLocation } from 'react-router';
-import { MENU_SIDEBAR } from '@/config/menu.config';
+import { MENU_SIDEBAR_PROPERTIES } from '@/config/menu.config';
 import { MenuItem } from '@/config/types';
 import { cn } from '@/lib/utils';
 import { useMenu } from '@/hooks/use-menu';
@@ -11,7 +11,7 @@ export function Breadcrumb() {
   const { pathname } = useLocation();
   const { getBreadcrumb, isActive } = useMenu(pathname);
   const { t } = useLanguage();
-  const items: MenuItem[] = getBreadcrumb(MENU_SIDEBAR);
+  const items: MenuItem[] = getBreadcrumb(MENU_SIDEBAR_PROPERTIES);
 
   if (items.length === 0) {
     return null;
