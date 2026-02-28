@@ -93,6 +93,7 @@ import {
   WishlistPage,
 } from '@/pages/store-client';
 import { RentPropertiesPage, SalePropertiesPage } from '@/pages/properties';
+import { UsersPage, AddUserPage } from '@/pages/users';
 import { Navigate, Route, Routes } from 'react-router';
 
 export function AppRoutingSetup() {
@@ -104,6 +105,8 @@ export function AppRoutingSetup() {
           <Route path="/dark-sidebar" element={<Demo1DarkSidebarPage />} />
           <Route path="/properties/rent" element={<RentPropertiesPage />} />
           <Route path="/properties/sale" element={<SalePropertiesPage />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/users/add" element={<AddUserPage />} />
           <Route
             path="/public-profile/profiles/default/"
             element={<ProfileDefaultPage />}

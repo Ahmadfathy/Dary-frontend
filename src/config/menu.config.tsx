@@ -75,6 +75,20 @@ export const MENU_SIDEBAR_PROPERTIES: MenuConfig = [
         path: '/properties/sale'
       }
     ]
+  },
+  {
+    title: 'المستخدمين',
+    icon: ShieldUser,
+    children: [
+      {
+        title: 'كل المستخدمين',
+        path: '/users'
+      },
+      {
+        title: 'اضافة مستحذم',
+        path: '/users/add'
+      }
+    ]
   }
 ];
 
